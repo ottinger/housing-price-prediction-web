@@ -1,0 +1,18 @@
+{
+  "land_size": 0.4,
+  "land_value": 1000,
+  "year_built": 1965,
+  "sqft_sum": 2000,
+  "bed_sum": 3,
+  "bath_sum": 2,
+  "days_ago": 0,
+  "main_bldg_year": 1965,
+  "main_bldg_effective_year": 1965,
+  "room_sum": 8,
+  "Sub": "WEST LAWN GARDEN ADD",
+  "HVAC": "Central Air to Air",
+  "Descr": "Ranch 1 Story",
+  "Exterior": "Frame Masonry Veneer",
+  "Roof": "Gable"
+
+}

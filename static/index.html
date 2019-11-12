@@ -1,0 +1,59 @@
+<html>
+<head>
+  <title>predict a price!</title>
+  <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+</head>
+<body>
+<form id="theform" action="predict" method="POST">
+Land size: <input type="text" name="land_size"><br>
+Land value: <input type="text" name="land_value"><br>
+Year built: <input type="text" name="year_built"><br>
+Total sq ft on parcel: <input type="text" name="sqft_sum"><br>
+Beds (all): <input type="text" name="bed_sum"><br>
+Baths (all): <input type="text" name="bath_sum"><br>
+Days ago: <input type="text" name="days_ago"><br>
+Primary house year built: <input type="text" name="main_bldg_year"><br>
+Primary house effective year: <input type="text" name="main_bldg_effective_year"><br>
+Number of rooms: <input type="text" name="room_sum"><br>
+Subdivision: <input type="text" name="Sub"><br>
+HVAC type: <input type="text" name="HVAC"><br>
+Description: <input type="text" name="Descr"><br>
+Exterior type: <input type="text" name="Exterior"><br>
+Roof type: <input type="text" name="Roof"><br>
+<input type="submit" name="submit" value="submit">
+</form>
+
+<script>
+  function sendForm(e) {
+    e.preventDefault();
+
+    var fields = $(":input").serializeArray();
+    var dictified = {};
+    for(var i = 0; i < fields.length; i++) {
+      var converted = fields[i].value == "" ? "" : fields[i].value * 1;
+      fields[i].value = isNaN(converted) ? fields[i].value : converted;
+      var x = fields[i].name;
+      dictified[fields[i].name] = fields[i].value;
+    }
+    console.log(dictified);
+    var jsonified = JSON.stringify(dictified);
+    //console.log(jsonified);
+
+    var url = $(this).attr("action");
+    $.ajax({
+      type: "POST",
+      url: url,
+      data: jsonified,
+      contentType: "application/json",
+      success: function(data) {
+        alert(data);
+      }
+    });
+  }
+
+  $("#theform").submit(sendForm);
+
+</script>
+
+</body>
+</html>
