@@ -304,5 +304,5 @@ y_predict = bayesian_ridge.predict(X_test)
 
 model_stats(bayesian_ridge,X_test,y_test,X_train,y_train,y_predict)
 
-pickle.dump(bayesian_ridge, open('bayesian_ridge.pkl', 'wb'))
+pickle.dump(bayesian_ridge, open('model.pkl', 'wb'))
 pickle.dump(X.columns, open('column_names.pkl', 'wb'))

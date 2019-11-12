@@ -43,5 +43,5 @@ def send_root():
 
 if __name__ == '__main__':
     field_names = pickle.load(open("column_names.pkl", "rb"))
-    model = pickle.load(open("bayesian_ridge.pkl", "rb"))
+    model = pickle.load(open("model.pkl", "rb"))
     app.run(port=8000)
