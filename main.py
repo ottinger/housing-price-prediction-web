@@ -6,6 +6,7 @@ import json
 app = Flask(__name__)
 
 @app.route('/predict', methods=['POST','GET'])
+@app.route('/api/predict', methods=['POST','GET'])
 def predict():
     json_ = request.get_json()
     print(json_)
